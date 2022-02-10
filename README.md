@@ -4,7 +4,7 @@ This box is still a working in progress but for now can be used to mint create a
 To use the box follow the instructions below.
 - Add the contructor arguements to `deployer` function in `2_deploy_contracts.js`. 
   The URI for your NFT images must be passed as the first argument. 
-  The `name` and `symbol` of the toke will be passed a the second and third respectively.
+  The `name` and `symbol` of the token will be passed a the second and third respectively.
 
 - After migrating your contracts head to the `client` directory and run `npm run start` to view the application in your `http://localhost:3000/`. 
 - Connect your wallet and mint your first NFT!
