@@ -64,7 +64,7 @@ First ensure you are in a new and empty directory.
     deployer.deploy(NFTCollection,"YOUR URI","TOKEN NAME","TOKEN SYMBOL");
    };
     ``````
-4. In the root directory install the [Open Zeppeling ERC721 Contracts](https://docs.openzeppelin.com/contracts/4.x/erc721) by running the following command.
+4. In the root directory install the [Open Zeppelin ERC721 Contracts](https://docs.openzeppelin.com/contracts/4.x/erc721) by running the following command.
    ```javascript
       npm install @openzeppelin/contracts
       ```
