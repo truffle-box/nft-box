@@ -34,7 +34,7 @@ If you are unfamiliar with using `.env` for managing your mnemonics and other ke
 3) Add the following, filling in your own Infura project key and mnemonics:
 
 ```
-MNEMONIC="YOUR MNEMONIC HERE"
+MNEMONIC="<YOUR MNEMONIC HERE>"
 INFURA_KEY="<Your Infura Project ID>"
 RINKEBY_MNEMONIC="<Your Rinkeby Mnemonic>"
 MAINNET_MNEMONIC="<Your Mainnet Mnemonic>"
