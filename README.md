@@ -64,29 +64,33 @@ First ensure you are in a new and empty directory.
     deployer.deploy(NFTCollection,"YOUR URI","TOKEN NAME","TOKEN SYMBOL");
    };
     ``````
-    
-4. Run the development console.
+4. In the root directory install the [Open Zeppeling ERC721 Contracts](https://docs.openzeppelin.com/contracts/4.x/erc721) by running the following command.
+   ```javascript
+      npm install @openzeppelin/contracts
+      ```
+      
+5. Run the development console.
     ```javascript
     truffle develop
     ```
 
-5. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with `truffle`.
+6. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with `truffle`.
     ```javascript
     compile
     migrate
 
-6. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
+7. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
     ```javascript
     // in another terminal (i.e. not in the truffle develop prompt)
     cd client
     npm install
     npm run start
     ```
-7. After migrating your contracts head to the `client` directory and run `npm run start` to view the application in your `http://localhost:3000/`. Connect your wallet      and mint your first NFT!
+8. After migrating your contracts head to the `client` directory and run `npm run start` to view the application in your `http://localhost:3000/`. Connect your wallet      and mint your first NFT!
 
-8. You can check the developer console to see the transaction has and if you deploy to `rinkeby` you will be able to see the NFT on their test-net site [here](https://testnets.opensea.io/).
+9. You can check the developer console to see the transaction has and if you deploy to `rinkeby` you will be able to see the NFT on their test-net site [here](https://testnets.opensea.io/).
 
-9. To build the application for production, use the build script. A production build will be in the `client/build` folder.
+10. To build the application for production, use the build script. A production build will be in the `client/build` folder.
     ```javascript
     // ensure you are inside the client directory when running this
     npm run build
