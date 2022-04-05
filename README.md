@@ -9,7 +9,7 @@ This box is still a work in progress but for now can be used to mint create an N
 
 ## Requirements
 
-The Arbitrum Box has the following requirements:
+The NFT Box has the following requirements:
 
 - [Node.js](https://nodejs.org/) 10.x or later
 - [NPM](https://docs.npmjs.com/cli/) version 5.2 or later
