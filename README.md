@@ -25,7 +25,7 @@ Helpful, but optional:
 
 You will need at least one mnemonic to use with the network. The `.dotenv` npm package has been installed for you, and you will need to create a `.env` file for storing your mnemonic and any other needed private information.
 
-The `.env` file is ignored by git in this project, to help protect your private data. In general, it is good security practice to avoid committing information about your private keys to github. The `truffle-config.arbitrum.js` file expects a `MNEMONIC` value to exist in `.env` for running commands on each of these networks, as well as a default `MNEMONIC` for the Arbitrum network we will run locally.
+The `.env` file is ignored by git in this project, to help protect your private data. In general, it is good security practice to avoid committing information about your private keys to github. The `truffle-config.js` file expects a `MNEMONIC` value to exist in `.env` for running commands on each of these networks, as well as a default `MNEMONIC` for the Arbitrum network we will run locally.
 
 If you are unfamiliar with using `.env` for managing your mnemonics and other keys, the basic steps for doing so are below:
 
@@ -34,13 +34,11 @@ If you are unfamiliar with using `.env` for managing your mnemonics and other ke
 3) Add the following, filling in your own Infura project key and mnemonics:
 
 ```
-MNEMONIC="jar deny prosper gasp flush glass core corn alarm treat leg smart"
+MNEMONIC="YOUR MNEMONIC HERE"
 INFURA_KEY="<Your Infura Project ID>"
 RINKEBY_MNEMONIC="<Your Rinkeby Mnemonic>"
-MAINNET_MNEMONIC="<Your Arbitrum Mainnet Mnemonic>"
+MAINNET_MNEMONIC="<Your Mainnet Mnemonic>"
 ```
-
-_Note: the value for the `MNEMONIC` above is the one you should use, as it is expected within the local arbitrum network we will run in this Truffle Box._
 
 4) As you develop your project, you can put any other sensitive information in this file. You can access it from other files with `require('dotenv').config()` and refer to the variable you need with `process.env['<YOUR_VARIABLE>']`.
 
