@@ -4,7 +4,6 @@ This box is still a work in progress but for now can be used to mint create an N
 - [Truffle NFT Box](#truffle-nft-box)
   - [Requirements](#requirements)
   - [Setup](#setup)
-    - [Using the env File](#using-the-env-file)
   - [Installation](#installation)
   - [Support](#support)
 
@@ -21,28 +20,6 @@ Helpful, but optional:
 - A [MetaMask](https://metamask.io/) account
 
 ## Setup
-
-### Using the env File
-
-You will need at least one mnemonic to use with the network. The `.dotenv` npm package has been installed for you, and you will need to create a `.env` file for storing your mnemonic and any other needed private information.
-
-The `.env` file is ignored by git in this project, to help protect your private data. In general, it is good security practice to avoid committing information about your private keys to github. The `truffle-config.js` file expects a `MNEMONIC` value to exist in `.env` for running commands on each of these networks, as well as a default `MNEMONIC` for the Arbitrum network we will run locally.
-
-If you are unfamiliar with using `.env` for managing your mnemonics and other keys, the basic steps for doing so are below:
-
-1) Use `touch .env` in the command line to create a `.env` file at the root of your project.
-2) Open the `.env` file in your preferred IDE
-3) Add the following, filling in your own Infura project key and mnemonics:
-
-```
-MNEMONIC="<YOUR MNEMONIC HERE>"
-INFURA_KEY="<Your Infura Project ID>"
-RINKEBY_MNEMONIC="<Your Rinkeby Mnemonic>"
-MAINNET_MNEMONIC="<Your Mainnet Mnemonic>"
-```
-
-4) As you develop your project, you can put any other sensitive information in this file. You can access it from other files with `require('dotenv').config()` and refer to the variable you need with `process.env['<YOUR_VARIABLE>']`.
-
 
 ## Installation
 
@@ -96,7 +73,36 @@ First ensure you are in a new and empty directory.
     // ensure you are inside the client directory when running this
     npm run build
     ```
-    
+
+## Deployment
+
+To deploy your contracts to a public network (such as a testnet or mainnet) there are two approaches. The first uses [Truffle Dashboard](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard.html) which provides "an easy way to use your existing MetaMask wallet for your deployments". The second, requires copying your private key or mnemonic into your project so the deployment transactions can be signed prior to submission to the network.
+
+### Using Truffle Dashboard (recommended)
+
+Truffle Dashboard ships with Truffle and can be started with `truffle dashboard`. This in turn loads the dashboard at http://localhost:24012 and beyond that you'll just need to run your migration (`truffle migrate`).
+
+### Using the env File
+
+You will need at least one mnemonic to use with the network. The `.dotenv` npm package has been installed for you, and you will need to create a `.env` file for storing your mnemonic and any other needed private information.
+
+The `.env` file is ignored by git in this project, to help protect your private data. In general, it is good security practice to avoid committing information about your private keys to github. The `truffle-config.js` file expects a `MNEMONIC` value to exist in `.env` for running commands on each of these networks, as well as a default `MNEMONIC` for the Arbitrum network we will run locally.
+
+If you are unfamiliar with using `.env` for managing your mnemonics and other keys, the basic steps for doing so are below:
+
+1) Use `touch .env` in the command line to create a `.env` file at the root of your project.
+2) Open the `.env` file in your preferred IDE
+3) Add the following, filling in your own Infura project key and mnemonics:
+
+```
+MNEMONIC="<YOUR MNEMONIC HERE>"
+INFURA_KEY="<Your Infura Project ID>"
+RINKEBY_MNEMONIC="<Your Rinkeby Mnemonic>"
+MAINNET_MNEMONIC="<Your Mainnet Mnemonic>"
+```
+
+4) As you develop your project, you can put any other sensitive information in this file. You can access it from other files with `require('dotenv').config()` and refer to the variable you need with `process.env['<YOUR_VARIABLE>']`.
+
 ## Support
 
 Support for this box is available via the Truffle community available [here](https://www.trufflesuite.com/community).
