@@ -3,15 +3,7 @@ import Web3 from 'web3';
 import "./App.css";
 import { useEffect, useState } from 'react';
 import './App.css';
-import contract from './contracts/NFTCollectible.json';
-//import Card from 'react-bootstrap/Card'
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-const contractAddress = "0x04b1600408594E5D8E6dD31c8D68205482A3eB97";
-const abi = contract.abi;
-console.log(abi)
+import contract from './contracts/NFTCollection.json';
 
 function App() {
 
@@ -64,22 +56,22 @@ function App() {
 
         // Use web3 to get the user's accounts.
         const accounts = await web3.eth.getAccounts();
-        ///create a contrat instance
-        //replace ethers withe web3 js contract instnae
-        //const provider = new ethers.providers.Web3Provider(ethereum);
-        const account = web3.eth.accounts.create();
+
+        console.log("Network: ", await web3.eth.net.getId());
+        const contractAddress = contract.networks[await web3.eth.net.getId()].address;
+        const abi = contract.abi;
+
+        // Create a contract instance
         const nftContract = new web3.eth.Contract(abi, contractAddress);
         console.log(nftContract);
         console.log("Initialize payment");
+
         let nftTxn = await nftContract.methods.mintNFTs(1).send({ from: accounts[0], value: web3.utils.toWei("0.0001", "ether") }).on('receipt', function () {
           console.log('receipt')
         });
-        console.log(nftTxn.transactionHash)
 
-        console.log("Mining... please wait");
-        //await nftTxn.wait();
-
-        console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.transactionHash}`);
+        console.log("Mining...please wait");
+        console.log("Mined: ", nftTxn.transactionHash);
 
       } else {
         console.log("Ethereum object does not exist");
