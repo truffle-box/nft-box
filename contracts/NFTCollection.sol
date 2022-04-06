@@ -71,7 +71,7 @@ contract NFTCollection is ERC721Enumerable, Ownable {
     }
     
 }
-    // this function allows you to reserve NFTs and can onlybe calle by owner
+    // this function allows you to reserve NFTs and can only be called by owner
     // function reserveNFTs() public onlyOwner {
     //     uint totalMinted = _tokenIds.current();
 
