@@ -1,11 +1,12 @@
 # Truffle NFT Box
 This box is still a work in progress but for now can be used to mint create an NFT collection and mint and NFT.
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Setup](#setup)
-  * [Using the .env File](#using-the-env-file)
-- [Support](#support)
+- [Truffle NFT Box](#truffle-nft-box)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+    - [Using the env File](#using-the-env-file)
+  - [Installation](#installation)
+  - [Support](#support)
 
 ## Requirements
 
@@ -49,13 +50,13 @@ First ensure you are in a new and empty directory.
 
 1. Run the `unbox` command via `npx` and skip to step 3. This will install all necessary dependencies. A Create-React-App is generated in the `client` directory.
    ```js
-   npx truffle unbox nft-box
+   npx truffle unbox nft
    ```
 
 2. Alternatively, you can install Truffle globally and run the `unbox` command.
     ```javascript
     npm install -g truffle
-    truffle unbox nft-box
+    truffle unbox nft
     ```
     
 3. Add the contructor arguments to `deployer` function in `2_deploy_contracts.js`. The URI for your NFT images must be passed as the first argument. The `name` and `symbol` of the token will be passed as the second and third respectively.
