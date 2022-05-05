@@ -36,7 +36,12 @@ First ensure you are in a new and empty directory.
     truffle unbox nft-box
     ```
     
-3. Add the contructor arguments to `deployer` function in `2_deploy_contracts.js`. The URI for your NFT images must be passed as the first argument. The `name` and `symbol` of the token will be passed as the second and third respectively.
+3. In the root directory install the required dependices. This will install a few things along with [Open Zeppelin Contracts](https://docs.openzeppelin.com/contracts/4.x/erc721) check them out [here](https://docs.openzeppelin.com/contracts/4.x/erc721) for more info.
+   ```javascript
+      npm install @openzeppelin/contracts
+      ```
+      
+4. Add the contructor arguments to `deployer` function in `2_deploy_contracts.js`. The URI for your NFT images must be passed as the first argument. The `name` and `symbol` of the token will be passed as the second and third respectively.
     ```javascript
     module.exports = function(deployer) {
     deployer.deploy(NFTCollection,"YOUR URI","TOKEN NAME","TOKEN SYMBOL");
