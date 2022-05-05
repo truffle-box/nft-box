@@ -33,7 +33,7 @@ First ensure you are in a new and empty directory.
 2. Alternatively, you can install Truffle globally and run the `unbox` command.
     ```javascript
     npm install -g truffle
-    truffle unbox nft
+    truffle unbox nft-box
     ```
     
 3. Add the contructor arguments to `deployer` function in `2_deploy_contracts.js`. The URI for your NFT images must be passed as the first argument. The `name` and `symbol` of the token will be passed as the second and third respectively.
