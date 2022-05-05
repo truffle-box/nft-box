@@ -49,7 +49,7 @@ First ensure you are in a new and empty directory.
     ``````
 4. In the root directory install the required dependices. This will install a few things along with [Open Zeppelin Contracts](https://docs.openzeppelin.com/contracts/4.x/erc721) check them out [here](https://docs.openzeppelin.com/contracts/4.x/erc721) for more info.
    ```javascript
-      npm install @openzeppelin/contracts
+      npm install
       ```
       
 5. Run the development console.
