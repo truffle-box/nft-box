@@ -2,11 +2,6 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
 
 # compilation
 /ts-out
@@ -15,16 +10,7 @@
 /build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 .env
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 client/src/contracts
 !client/src/contracts/NFTCollection.json
