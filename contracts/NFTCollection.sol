@@ -9,17 +9,17 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 contract NFTCollection is ERC721Enumerable, Ownable {
     using SafeMath for uint256;
     using Counters for Counters.Counter;
-    
+
     Counters.Counter private _tokenIds;
-    //uppy amount for you collection
+    //supply amount for your collection
     uint public constant MAX_SUPPLY = 100;
-    //mint price for you collection
+    //mint price for your collection
     uint public constant PRICE = 0.00001 ether;
     //max unit per wallet
     uint public constant MAX_PER_MINT = 5;
-    
+
     string public baseTokenURI;
-    
+
     constructor(string memory baseURI, string memory name, string memory symbol) ERC721(name, symbol) {
         setBaseURI(baseURI);
     }
@@ -28,11 +28,11 @@ contract NFTCollection is ERC721Enumerable, Ownable {
     function _baseURI() internal view virtual override returns (string memory) {
         return baseTokenURI;
     }
-    
+
     function setBaseURI(string memory _baseTokenURI) public onlyOwner {
         baseTokenURI = _baseTokenURI;
     }
-    
+
     function mintNFTs(uint _count) public payable {
         uint totalMinted = _tokenIds.current();
 
@@ -44,13 +44,13 @@ contract NFTCollection is ERC721Enumerable, Ownable {
             _mintSingleNFT();
         }
     }
-    
+
     function _mintSingleNFT() private {
         uint newTokenID = _tokenIds.current();
         _safeMint(msg.sender, newTokenID);
         _tokenIds.increment();
     }
-    
+
     function tokensOfOwner(address _owner) external view returns (uint[] memory) {
 
         uint tokenCount = balanceOf(_owner);
@@ -61,7 +61,7 @@ contract NFTCollection is ERC721Enumerable, Ownable {
         }
         return tokensId;
     }
-    
+
     function withdraw() public payable onlyOwner {
         uint balance = address(this).balance;
         require(balance > 0, "No ether left to withdraw");
@@ -69,7 +69,7 @@ contract NFTCollection is ERC721Enumerable, Ownable {
         (bool success, ) = (msg.sender).call{value: balance}("");
         require(success, "Transfer failed.");
     }
-    
+
 }
     // this function allows you to reserve NFTs and can only be called by owner
     // function reserveNFTs() public onlyOwner {
