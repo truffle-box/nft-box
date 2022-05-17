@@ -51,7 +51,7 @@ First ensure you are in a new and empty directory.
    ```javascript
       npm install
       ```
-      
+
 5. Run the development console.
     ```javascript
     truffle develop
