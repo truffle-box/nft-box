@@ -11,11 +11,11 @@ contract NFTCollection is ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
-    //supply amount for your collection
-    uint public constant MAX_SUPPLY = 100;
-    //mint price for your collection
+    // The max number of NFTs in the collection
+    uint public constant MAX_SUPPLY = 10;
+    // The mint price for the collection
     uint public constant PRICE = 0.00001 ether;
-    //max unit per wallet
+    // The max number of mints per wallet
     uint public constant MAX_PER_MINT = 5;
 
     string public baseTokenURI;
@@ -50,9 +50,9 @@ contract NFTCollection is ERC721Enumerable, Ownable {
         _safeMint(msg.sender, newTokenID);
         _tokenIds.increment();
     }
-
+    
+    // Returns the ids of the NFTs owned by the wallet address
     function tokensOfOwner(address _owner) external view returns (uint[] memory) {
-
         uint tokenCount = balanceOf(_owner);
         uint[] memory tokensId = new uint256[](tokenCount);
 
@@ -61,7 +61,8 @@ contract NFTCollection is ERC721Enumerable, Ownable {
         }
         return tokensId;
     }
-
+    
+    // Withdraw the ether in the contract
     function withdraw() public payable onlyOwner {
         uint balance = address(this).balance;
         require(balance > 0, "No ether left to withdraw");
@@ -70,14 +71,15 @@ contract NFTCollection is ERC721Enumerable, Ownable {
         require(success, "Transfer failed.");
     }
 
+    // Reserve NFTs only for owner to mint for free
+    function reserveNFTs(uint _count) public onlyOwner {
+        uint totalMinted = _tokenIds.current();
+
+        require(totalMinted.add(_count) < MAX_SUPPLY, "Not enough NFTs left to reserve");
+
+        for (uint i = 0; i < _count; i++) {
+            _mintSingleNFT();
+        }
+    }
 }
-    // this function allows you to reserve NFTs and can only be called by owner
-    // function reserveNFTs() public onlyOwner {
-    //     uint totalMinted = _tokenIds.current();
 
-    //     require(totalMinted.add(10) < MAX_SUPPLY, "Not enough NFTs left to reserve");
-
-    //     for (uint i = 0; i < 10; i++) {
-    //         _mintSingleNFT();
-    //     }
-    // }
