@@ -1,5 +1,4 @@
 # Truffle NFT Box
-This box is still a work in progress but for now can be used to mint create an NFT collection and mint and NFT.
 
 - [Truffle NFT Box](#truffle-nft-box)
   - [Requirements](#requirements)
