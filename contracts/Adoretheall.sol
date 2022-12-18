@@ -13,9 +13,9 @@ contract Adoretheall is ERC721Enumerable, Ownable {
 
     Counters.Counter private _tokenIds;
     // The max number of NFTs in the collection
-    uint public constant MAX_SUPPLY = 5500;
+    uint public constant MAX_SUPPLY = 6666;
     // The mint price for the collection
-    uint public constant PRICE = 0.1 ether;
+    uint public constant PRICE = 0.01 ether;
     // The max number of mints per wallet
     uint public constant MAX_PER_MINT = 1;
 

@@ -1,5 +1,5 @@
-var NFTCollection = artifacts.require("./NFTCollection.sol");
+var Adoretheall = artifacts.require("./Adoretheall.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(NFTCollection,"URI HERE","TOKEN NAME","SYMBOL");
+  deployer.deploy(Adoretheall,"URI HERE","TOKEN NAME","SYMBOL");
 };

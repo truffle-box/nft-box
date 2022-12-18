@@ -1,19 +1,29 @@
-const Adoretheall = artifacts.require("../contracts/Adoretheall.sol");
-
-const Cid_NFT = "Qmdk7BW1MTzSN9qnYZg9DQx3x4PVsb3dtVQE2FUnW58UxJ";
+const Adoretheall = artifacts.require("./Adoretheall.sol");
 
 contract("Adoretheall", accounts => {
-  it("...should store the value 1997.", async () => {
-    const AdoretheallInstance = await Adoretheall.deployed();
-    // Set value of 1997
-    await AdoretheallInstance.set(1997, { from: accounts[0] });
-    // Get stored value
-    const storedData = await AdoretheallInstance.get.call();
-    assert.equal(storedData, 1997, "The value 1997 was not stored.");
+
+  let AdoretheallInstance;
+
+  beforeEach(async () => {
+    AdoretheallInstance = await Adoretheall.deployed();
   });
-  it("...should return baseURI", async () => {
-    const AdoretheallInstance = await Adoretheall.new();
-    const result = AdoretheallInstance._baseURI(Cid_NFT);
-    assert.equal(result.logs[0].rags.baseURI, Cid_NFT, "not return baseURL");
+
+  it("... should return setBaseURI status", async () => {
+    const cid = "Qmdk7BW1MTzSN9qnYZg9DQx3x4PVsb3dtVQE2FUnW58UxJ";
+    const result = await AdoretheallInstance.setBaseURI(cid);
+    assert.equal(result.receipt.status, true, "not return baseURL");
+  })
+  
+  context("... mint single nft",async () => {
+    it("mint a token", async () => {
+
+    })
+  })
+
+  xcontext("... mint nfts",async () => {
+    it("mint tokens", async () => {
+      //Time Travelling
+      await time.increase(time.duration.days(1));
+    })
   })
 });
